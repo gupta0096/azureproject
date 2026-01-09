@@ -1,0 +1,13 @@
+{
+	"name": "azure_datalake_link_service",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "This link service is used to allow ADF to read/write data into data lake.",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://storageaccountnameone.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQENEMjIyN0E2LTQ1REQtNEJFQS04MTM3LTlDNkI5MDQzQzU1Q184Yzk1OTg1Ny1kNmE3LTQ0OTktYTMwMy04NWFkOTE4MjIyNGEiDQp9"
+		}
+	}
+}
