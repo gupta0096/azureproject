@@ -1,0 +1,42 @@
+{
+	"name": "datalake_store_parquet_param",
+	"properties": {
+		"description": "dataset/datalake_cdc_lookup_param.json  => for JSON\nWe need new dataset for parquet file, as dataset needs specific file format during configuration.\nparquest best columnar file format to store file in efficient way.\n\nwe are creating a dataset with params, this params helps to use runtime values of container, folder & filename to create path for file storage. This will help us to prevent creating multiple datasets.",
+		"linkedServiceName": {
+			"referenceName": "azure_datalake_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"container": {
+				"type": "string"
+			},
+			"folder": {
+				"type": "string"
+			},
+			"file": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folder",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().container",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
