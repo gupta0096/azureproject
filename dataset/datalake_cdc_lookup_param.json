@@ -1,0 +1,29 @@
+{
+	"name": "datalake_cdc_lookup_param",
+	"properties": {
+		"description": "This is used to lookup cdc for different data lake containers like bronze, silver, gold. this make things dynamic, no hard coding.",
+		"linkedServiceName": {
+			"referenceName": "azure_datalake_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"container": {
+				"type": "string"
+			},
+			"folder": {
+				"type": "string"
+			},
+			"file": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			}
+		},
+		"schema": {}
+	}
+}
