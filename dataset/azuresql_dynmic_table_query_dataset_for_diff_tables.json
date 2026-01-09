@@ -1,0 +1,34 @@
+{
+	"name": "azuresql_dynmic_table_query_dataset_for_diff_tables",
+	"properties": {
+		"description": "This will help to query on different table using common query where schema, table and cdc_col will be passed as context params. This will avoid creating multiple datasets for multiple tables. ",
+		"linkedServiceName": {
+			"referenceName": "azure_sql_link_service",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			},
+			"cdc_col": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().table",
+				"type": "Expression"
+			}
+		}
+	}
+}
